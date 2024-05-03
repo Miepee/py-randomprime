@@ -29,9 +29,12 @@ jobs:
           curl -fsSL https://get.docker.com -o get-docker.sh
           sh ./get-docker.sh
           docker --version
-          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-          . "$HOME/.cargo/env"
-          rustup --version
+          docker run --name manylinux -d -it quay.io/pypa/manylinux2014_aarch64
+          alias de='docker exec -it manylinux'
+          
+          de curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+          de . "$HOME/.cargo/env"
+          de rustup --version
 
   build:
     strategy:
