@@ -29,6 +29,7 @@ jobs:
           curl -fsSL https://get.docker.com -o get-docker.sh
           sh ./get-docker.sh
           docker --version
+          dockerd -H unix:///var/run/docker.sock
           docker run --name manylinux -d -it quay.io/pypa/manylinux2014_aarch64
           alias de='docker exec -it manylinux'
           
