@@ -45,6 +45,7 @@ jobs:
           rustup target add --toolchain stable powerpc-unknown-linux-gnu
 
           # Add PPA for older python versions and install python 3.8
+          apt-get install -y software-properties-common
           add-apt-repository ppa:deadsnakes/ppa
           apt-get update
           apt-get install python3.8
