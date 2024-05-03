@@ -44,19 +44,12 @@ jobs:
           # Add PPC target
           rustup target add --toolchain stable powerpc-unknown-linux-gnu
 
-          # Add dependencies and compile python 3.8
+          # Install python
           apt-get update
-          apt-get install -y build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev
-          wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tar.xz
-          tar xf Python-3.8.0.tar.xz
-          cd Python-3.8.0
-          ./configure --enable-optimizations --prefix=/usr
-          make
-          make altinstall
-          cd ..
+          apt-get install -y python
 
           # Create venv, update pip, install packages
-          python3.8 -m venv .venv
+          python -m venv .venv
           .venv/bin/python -m pip install --upgrade pip
           .venv/bin/python -m pip install --upgrade build auditwheel
 
