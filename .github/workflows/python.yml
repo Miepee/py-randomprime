@@ -48,6 +48,10 @@ jobs:
           apt-get update
           apt-get install -y python3 python3-venv
 
+          # Install git and add workaround with Git breaking setuptools-scm
+          apt-get install git
+          git config --global --add safe.directory $(pwd)
+
           # Create venv, update pip, install packages
           python -m venv .venv
           .venv/bin/python -m pip install --upgrade pip
