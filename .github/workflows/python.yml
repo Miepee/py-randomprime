@@ -46,7 +46,7 @@ jobs:
 
           # Install python
           apt-get update
-          apt-get install -y python
+          apt-get install -y python3
 
           # Create venv, update pip, install packages
           python -m venv .venv
