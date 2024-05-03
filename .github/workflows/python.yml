@@ -22,8 +22,9 @@ jobs:
     - uses: pguyot/arm-runner-action@v2
       with:
         cpu: cortex-a53
-        base_image: raspios_lite_arm64:latest
+        base_image: raspios_lite_arm64:2022-01-28
         cpu_info: cpuinfo/raspberrypi_zero2_w_arm64
+        image_additional_mb: 8192
         commands: |
           curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
           rustup --version
