@@ -26,7 +26,10 @@ jobs:
         cpu_info: cpuinfo/raspberrypi_zero2_w_arm64
         image_additional_mb: 8192
         commands: |
+          apt install docker
+          docker --version
           curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+          . "$HOME/.cargo/env"
           rustup --version
 
   build:
